@@ -4,6 +4,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.control.TextField;
 import javafx.util.StringConverter;
+import javafx.util.converter.NumberStringConverter;
 
 public class IntegerField extends TextField {
 
@@ -15,7 +16,7 @@ public class IntegerField extends TextField {
 
 	public IntegerField(Integer number) {
 		super();
-		
+
 		textProperty().bindBidirectional(this.number, new StringConverter<Number>() {
 			@Override
 			public Number fromString(String string) {

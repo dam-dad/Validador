@@ -48,10 +48,7 @@ public class Controller implements Initializable {
 		numero1Text.textProperty().bindBidirectional(numero1, new NumberStringConverter());
 		numero3Text.numberProperty().bindBidirectional(numero3);
 		
-		Validator<String> oneCharValidator =  (control, value) -> {
-			boolean condition = value.length() != 1;
-	        return ValidationResult.fromMessageIf(control, "Ha introducido más de un carácter", Severity.WARNING, condition);
-	    };
+		Validator<String> oneCharValidator =  (control, value) -> ValidationResult.fromMessageIf(control, "El campo debe contenerun sólo caracter", Severity.ERROR, value.length() != 1);
 
 		ValidationSupport support = new ValidationSupport();
 	    support.registerValidator(numero1Text, true, new IntegerValidator());
